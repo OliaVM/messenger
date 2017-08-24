@@ -1,0 +1,23 @@
+body {
+	font-size: 12pt;
+	font-family: times new roman;
+}
+h1 {
+	color: #0e294b;
+}
+h2.redcolor {
+	color: #c70000;
+}
+#box12 {
+	background-color: #9090e8;
+	text-align: center;
+}
+#box4 {
+	background-color: #c5d0e6;
+}
+#box8 {
+	background-color: #d3deed;
+	text-align: center;
+}
+
+

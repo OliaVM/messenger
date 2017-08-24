@@ -1,0 +1,18 @@
+System requirements
+Git-2.12.0-64-bit
+Sublime Text Build 3126 x64
+Vagrant_1.9.2
+Vagrant plugin - vagrant-hostsupdater 
+VirtualBox-5.0.32-112930-Win
+
+Manual
+1.	Install git https://git-scm.com/downloads 
+2.	Install VirtualBox https://www.virtualbox.org/ 
+3.	Install vagrant https://www.vagrantup.com/downloads.html 
+4.	Create directory for project 
+5.	Move the project in directory 
+6.	Install vagrant plugin https://github.com/cogitatio/vagrant-hostsupdater 
+7.	Execute in console:  vagrant up
+8.	Check out url http://myproject.local.index.php and http://192.168.50.5.index.php  in browser. 
+9.	The database is automatically connected (The password also there is in the file “config/app.php”)
+10.	The user password for authorization form: 111, user login: user1
