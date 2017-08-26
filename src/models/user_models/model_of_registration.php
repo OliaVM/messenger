@@ -57,7 +57,6 @@ if (isset($_POST['submit2'])) {
 						//Print the exception message
 						$exRegSymbol = $ex10->getMessage();
 					}
-						
 				}
 				//If $row is not empty - the login is not free
 				else {
@@ -69,7 +68,6 @@ if (isset($_POST['submit2'])) {
 				//Print the exception message
 				$exRegistration6 = $ex6->getMessage();
 			}
-			
 		}
 		//Not filled any of the fields
 		else {

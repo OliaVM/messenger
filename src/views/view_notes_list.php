@@ -43,6 +43,6 @@
 		<?php endif; ?>
 		<br>
 	<?php endforeach; ?>
-	<?php require __DIR__ . '/../../src/core/pagination/contentPagination.php'; ?>
+	<?php require __DIR__ . '/contentPagination.php'; ?>
 <?php endif; ?>
 

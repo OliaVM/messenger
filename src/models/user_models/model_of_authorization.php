@@ -42,7 +42,6 @@ if (isset($_POST['submit'])) {
 							else {
 								$_SESSION['count']++;  
 							}
-							
 						}
 						else {
 							//Generate the exception

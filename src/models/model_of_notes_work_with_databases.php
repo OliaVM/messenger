@@ -40,7 +40,7 @@ if (isset($_POST['button_show_coments'])) {
 }
 
 // Delete notes
-require_once __DIR__ . '/../private_func/delete_information.php';
+require_once __DIR__ . '/private_actions/delete_information.php';
 
 //display of information from database on page(with pagination)
 if (isset($_GET['key'])) {

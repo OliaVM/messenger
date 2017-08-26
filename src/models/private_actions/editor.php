@@ -26,7 +26,6 @@ if (isset($_SESSION['login']) && isset($_SESSION['password'])) {
 						$prep->execute(); 
 						header("Location: ../index.php?page=1&key=indivpage_name=content");	
 						//header("Location: http://myproject.local/index.php?page=1&key=indiv");	
-						//http://myproject.local/index.php?page=1
 					}
 					else {
 						//Generate the exception
@@ -49,7 +48,7 @@ if (isset($_SESSION['login']) && isset($_SESSION['password'])) {
 <?php	endif; ?> 
 
 <?php
-require_once __DIR__ . '/../../src/core/form/editor_form.php';
-require_once __DIR__ . '/../common/notes_list.php'; 
+require_once __DIR__ . '/../../views/forms/editor_form.php';
+require_once __DIR__ . '/../../views/view_notes_list.php'; 
 ?>
 <?php //require_once __DIR__ . '/../common/footer.php'; ?> 

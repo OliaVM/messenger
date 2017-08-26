@@ -2,7 +2,7 @@
 //Class Work {
 //function get_data() {
 session_start();
-require_once __DIR__ . '/../../src/autoload.php';
+require_once __DIR__ . '/../autoload.php';
 //Connection with database
 $pathToConfig = __DIR__ . '/../../config/app.php';
 $oConfig = new Config($pathToConfig);
@@ -23,31 +23,37 @@ if (isset($_GET['page_name'])) {
 	$page_name = $_GET['page_name'];
 	switch ($_GET['page_name']) {
 		case 'content':
-		$path = "/";
+		$path = "/../src/views/main_views/";
 		break;
-		case 'avtorization_page':
-		$path = "/avtorization/";
+		case 'view_of_authorization':
+		$path = "/../src/views/user_views/";
 		break;
-		case 'registration_page':
-		$path = "/avtorization/";
+		case 'view_of_registration':
+		$path = "/../src/views/user_views/";
 		break;
 		case 'editor':
-		$path = "/private_func/";
+		$path = "/../src/models/private_actions/";
 		break;
 	}
 }
-
+else {
+	$page_name = "content";
+	$path = "/../src/views/main_views/";
+}
 
 
 //Cookie existence check
-require_once __DIR__ . '/../avtorization/cookies.php';
+require_once __DIR__ . '/user_models/model_of_cookies.php';
 //Authorization
-require_once __DIR__ . '/../avtorization/avtorization.php';
+require_once __DIR__ . '/user_models/model_of_authorization.php';
 // Registration
-require_once __DIR__ . '/../avtorization/registration.php';
+require_once __DIR__ . '/user_models/model_of_registration.php';
 //  Work with database:
 //adding in database:  text information, which the user uploaded; date,calculated using the function$ sent or show comments
-require_once __DIR__ . '/../common/work_with_databases.php';
+require_once __DIR__ . '/model_of_notes_work_with_databases.php';
+// Exit from session
+require_once __DIR__ . '/user_models/model_of_exit.php';
+
 
 //}
 //}
