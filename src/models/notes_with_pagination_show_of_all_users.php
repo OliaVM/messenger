@@ -16,10 +16,12 @@ if (isset($_GET['page'])) {
 	$start = $page * $num - $num;  
 	$sql = "SELECT notes.id, login, note_date, note_title, short_text, note_text FROM notes INNER JOIN users ON users.id= notes.user_id GROUP BY note_date LIMIT $start, $num";
 	$notes = getNotesList($basa, $sql);
+	return $notes;
 }
 else {
 	$sql = "SELECT notes.id, login, note_date, note_title, short_text, note_text FROM notes INNER JOIN users ON users.id= notes.user_id GROUP BY note_date"; 
 	$notes = getNotesList($basa, $sql);
+	return $notes;
 }
 
 

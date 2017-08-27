@@ -17,9 +17,11 @@ if (isset($_GET['page'])) {
 
 	$sql = "SELECT n.id, n.note_date, n.note_title, n.short_text, n.note_text ,u.login FROM notes n JOIN users u ON u.id = n.user_id WHERE u.login = '".$_SESSION['login']."' LIMIT $start, $num";
 	$notes = getNotesList($basa, $sql);
+	return $notes;
 }
 else {
 	$sql = 'SELECT n.id, n.note_date, n.note_title, n.short_text, n.note_text ,u.login FROM notes n JOIN users u ON u.id = n.user_id WHERE u.login = "'.$_SESSION['login'].'"';
 	$notes = getNotesList($basa, $sql);
+	return $notes;
 }
 

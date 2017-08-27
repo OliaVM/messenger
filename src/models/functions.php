@@ -1,6 +1,4 @@
 <?php
-//Class Work {
-//function get_data() {
 session_start();
 require_once __DIR__ . '/../autoload.php';
 //Connection with database
@@ -19,26 +17,27 @@ catch( PDOException  $e) {
 
 
 //router
+//path from template.php to our page
 if (isset($_GET['page_name'])) {
 	$page_name = $_GET['page_name'];
 	switch ($_GET['page_name']) {
 		case 'content':
-		$path = "/../src/views/main_views/";
+		$path = "/";
 		break;
 		case 'view_of_authorization':
-		$path = "/../src/views/user_views/";
+		$path = "/../user_views/";
 		break;
 		case 'view_of_registration':
-		$path = "/../src/views/user_views/";
+		$path = "/../user_views/";
 		break;
 		case 'editor':
-		$path = "/../src/models/private_actions/";
+		$path = "/../../models/private_actions/";
 		break;
 	}
 }
 else {
 	$page_name = "content";
-	$path = "/../src/views/main_views/";
+	$path = "/";
 }
 
 
@@ -55,8 +54,7 @@ require_once __DIR__ . '/model_of_notes_work_with_databases.php';
 require_once __DIR__ . '/user_models/model_of_exit.php';
 
 
-//}
-//}
+
 ?>
 						
 					

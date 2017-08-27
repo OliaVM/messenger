@@ -10,7 +10,7 @@ if (isset($_SESSION['login']) && isset($_SESSION['password'])) {
 		$prep->bindValue(':del', $del, PDO::PARAM_INT);
 		$prep->bindValue(':user_id', $_SESSION['id'], PDO::PARAM_INT);
 		$prep->execute(); 
-		header("Location: ../index.php?page=1&key=indivpage_name=content");
+		header("Location: ../index.php?page=1&key=indiv&page_name=content");
 		//header("Location: http://myproject.local/index.php?page=1&key=indiv");
 	}
 }
