@@ -5,13 +5,8 @@ require_once __DIR__ . '/../autoload.php';
 $pathToConfig = __DIR__ . '/../../config/app.php';
 $oConfig = new Config($pathToConfig);
 $dbConfig = $oConfig->get('db');
-try { 
 $basa  = getDbConnection($dbConfig['dns'], $dbConfig['user'], $dbConfig['password']);
 $basa->exec("set names utf8");
-}
-catch( PDOException  $e) {  
-    echo $e->getMessage();  
-}
 //,$dbConfig['options']
 
 
