@@ -19,7 +19,7 @@ if (isset($_GET['page_name'])) {
 		case 'content':
 		$path = "/";
 		break;
-		case 'view_of_authorization':
+		case 'authorization_page':
 		$path = "/../user_views/";
 		break;
 		case 'view_of_registration':

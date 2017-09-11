@@ -1,12 +1,21 @@
 ﻿<?php
 // Authorization
+class ExceptionFieldsEmptinessControl extends Exception { }
+class ExceptionLoginExistenceControl extends Exception { }
+class ExceptionUserPasswordControl extends Exception { }
 // Get the information from the database and compare with input user data
 class AuthClassModel {
 	public function formSendingControl($basa) {
-		if (isset($_POST['submit'])) {
-			$this->fieldsEmptinessControl($basa);
-		} 
-	} // end of formSendingControl
+		try {
+			if (isset($_POST['submit'])) {
+				$this->fieldsEmptinessControl($basa);
+			} 
+		}
+		catch (Exception $e) {
+			//Print the exception message
+			return $e->getMessage();
+		}
+    } // end of formSendingControl
 
 
 	public function fieldsEmptinessControl($basa) {
@@ -18,44 +27,45 @@ class AuthClassModel {
 				$sql = 'SELECT * FROM users WHERE login="'.$login.'"';
 				$sth = $basa->query($sql);
 				$rowUser = $sth->fetch(PDO::FETCH_ASSOC); //Преобразуем ответ из БД в строку массива
-				$this->loginExistenceControl($rowUser, $password, $basa);
+				$this->loginExistenceControl($rowUser, $password, $login, $basa);
 				return [$rowUser, $password];
 			}
 			else {
 				// Generate the exception
-				throw new Exception('Запоните все поля!');
+				throw new ExceptionFieldsEmptinessControl('Запоните все поля!');
 			}
 		}
-		catch (Exception $ex8) {
+		catch (ExceptionFieldsEmptinessControl $e) {
 			//Print the exception message
-			return $ex8->getMessage();
-			//throw new Exception($ex8->getMessage());
+			throw $e;
 		}
+		
 	} // end of fieldsEmptinessControl
 
-	public function loginExistenceControl($rowUser, $password, $basa) {	//$rowUser, $password		
+	public function loginExistenceControl($rowUser, $password, $login, $basa) {	//$rowUser, $password		
+	
 		try {
 			//If the database returned a non-empty answer, it means this login exist
 			if (isset($rowUser['login'])) {
 				$salt = $rowUser['salt'];
 				//Salt the password from the form
 				$saltedPassword = md5($password.$salt);
-				$this->UserPasswordControl($rowUser, $saltedPassword, $basa);
+				$this->UserPasswordControl($rowUser, $saltedPassword, $login, $basa);
 				return $saltedPassword;
 			}
 			else {
 				//Generate the exception
-				throw new Exception('Пользователь с таким именем не зарегистрирован');
+				throw new ExceptionLoginExistenceControl('Пользователь с таким именем не зарегистрирован!');
 			}
 		}
-		catch (Exception $ex4) {
+		catch (ExceptionLoginExistenceControl $ex4) {
 			//Print the exception message
-			$exAvtoriz4 = $ex4->getMessage();
-			return $exAvtoriz4;
+			throw  $ex4;
 		}
+		
 	} //end of loginExistenceControl
 
-	public function UserPasswordControl($rowUser, $saltedPassword, $basa) { //$rowUser, $saltedPassword
+	public function UserPasswordControl($rowUser, $saltedPassword, $login, $basa) { 	
 		try {
 			//If salt password from the database matches with the salted password from the form
 			if ($rowUser['password'] == $saltedPassword) {
@@ -64,34 +74,28 @@ class AuthClassModel {
 				$_SESSION['id'] = $rowUser['id']; 
 				$_SESSION['login'] = $rowUser['login']; 
 				$_SESSION['password'] = $rowUser['password']; 
-				$this->setUserCookie($rowUser, $basa);
+				$this->setUserCookie($rowUser, $login, $basa);
 				$this->getSessionCount();
-				return ['auth' => $_SESSION['auth'], 
-						'id' => $_SESSION['id'], 
-						'login' => $_SESSION['login'], 
-						'password' => $_SESSION['password'] 
-				];
 			}
 			else {
 				//Generate the exception
-				throw new Exception('Не верно введен логин или пароль');
+				throw new ExceptionUserPasswordControl('Не верно введен логин или пароль!');
 			}
 		}
-		catch (Exception $ex3) {
+		catch (ExceptionUserPasswordControl $ex3) {
 				//Print the exception message
-				$exAvtoriz3 = $ex3->getMessage();
-				return $exAvtoriz3;
+				throw $ex3;
 		}
+	
 	} //end of UserPasswordControl
 
 
-	public function setUserCookie($rowUser, $basa) {	//	$rowUser, 									
+	public function setUserCookie($rowUser, $login, $basa) {	//	$rowUser, 							
 		//Verify whether the checkbox 'Remember me' is clicked 
 		if (!empty($_REQUEST['remember']) and $_REQUEST['remember'] == 1) {
 			$key = generateSalt(); 
 			setcookie('login', $rowUser['login'], time()+60*60*24*30); 
 			setcookie('key', $key, time()+60*60*24*30); 
-			
 			$sql = 'UPDATE users SET cookie="'.$key.'" WHERE login="'.$login.'"';
 			$keys = $basa->query($sql);
 		}
@@ -108,5 +112,4 @@ class AuthClassModel {
 		return $_SESSION['count'];
 	}
 }
-
 

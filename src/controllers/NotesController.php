@@ -16,9 +16,9 @@ class NotesController {
 		$this->model->delete_note($basa);
 
 		$arrOfDataAboutNotes = $this->model->show_notes($basa);
-		$key = $arrOfDataAboutNotes['key']; 
+		$key = $arrOfDataAboutNotes['key']; // key for pagination
 		$page = $arrOfDataAboutNotes['page']; 
-		$notes = $arrOfDataAboutNotes['notes'];
+		$notes = $arrOfDataAboutNotes['notes']; // getNotesList
 		$total = $arrOfDataAboutNotes ['total']; 
 		
 		$list2 = $this->model->show_comments($basa);
