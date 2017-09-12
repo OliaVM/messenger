@@ -1,8 +1,5 @@
 <?php
-//model
-require_once __DIR__ . "/../models/model_of_notes_work_with_databases.php";
-//view
-require_once __DIR__ . "/../views/NotesView.php";
+
 class NotesController {
 	public $model;
 	public $view;

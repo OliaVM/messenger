@@ -10,7 +10,6 @@ $basa->exec("set names utf8");
 //,$dbConfig['options']
 
 
-
 //router
 //path from template.php to our page
 if (isset($_GET['page_name'])) {
@@ -22,7 +21,7 @@ if (isset($_GET['page_name'])) {
 		case 'authorization_page':
 		$path = "/../user_views/";
 		break;
-		case 'view_of_registration':
+		case 'registration_page':
 		$path = "/../user_views/";
 		break;
 		case 'editor':
@@ -50,7 +49,6 @@ require_once __DIR__ . '/user_models/model_of_exit.php';
 
 
 
-?>
 						
 					
 

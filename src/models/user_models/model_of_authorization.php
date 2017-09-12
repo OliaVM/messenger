@@ -17,7 +17,6 @@ class AuthClassModel {
 		}
     } // end of formSendingControl
 
-
 	public function fieldsEmptinessControl($basa) {
 		try {
 			//If the fields username and password filled
@@ -35,9 +34,9 @@ class AuthClassModel {
 				throw new ExceptionFieldsEmptinessControl('Запоните все поля!');
 			}
 		}
-		catch (ExceptionFieldsEmptinessControl $e) {
+		catch (ExceptionFieldsEmptinessControl $ex) {
 			//Print the exception message
-			throw $e;
+			throw $ex;
 		}
 		
 	} // end of fieldsEmptinessControl
