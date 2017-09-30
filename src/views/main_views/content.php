@@ -3,9 +3,9 @@
 <?php if (isset($_SESSION['login']) && isset($_SESSION['password'])): ?>
 	<h3><?php echo "Добрый день, ".$_SESSION['login']. "!"; // Выводим сообщение, что пользователь авторизирован ?> </h3>
 <?php endif; ?>	
-<!-- Messages -->
+<!-- Notes -->
 <?php require __DIR__ . '/../view_notes_list.php'; ?> 
-<!-- Create new message -->
+<!-- Create new note -->
 <?php if (isset($_SESSION['login']) && isset($_SESSION['password'])): ?>
 	<?php echo "<h2>" . "Добавить новую запись" . "</h2>"; ?>
 	<!-- Form of adding of notes -->	

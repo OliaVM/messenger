@@ -1,5 +1,4 @@
 <?php
-
 class NotesController {
 	public $model;
 	public $view;

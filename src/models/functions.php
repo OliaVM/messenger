@@ -9,9 +9,7 @@ $basa  = getDbConnection($dbConfig['dns'], $dbConfig['user'], $dbConfig['passwor
 $basa->exec("set names utf8");
 //,$dbConfig['options']
 
-
-//router
-//path from template.php to our page
+//router (path from template.php to our page - TO PAGE content, authorization_page, ...)
 if (isset($_GET['page_name'])) {
 	$page_name = $_GET['page_name'];
 	switch ($_GET['page_name']) {
@@ -24,8 +22,8 @@ if (isset($_GET['page_name'])) {
 		case 'registration_page':
 		$path = "/../user_views/";
 		break;
-		case 'editor':
-		$path = "/../../models/private_actions/";
+		case 'editor_page':
+		$path = "/../private_actions/";
 		break;
 	}
 }
@@ -36,14 +34,14 @@ else {
 
 
 //Cookie existence check
-require_once __DIR__ . '/user_models/model_of_cookies.php';
+	//require_once __DIR__ . '/user_models/model_of_cookies.php';
 //Authorization
-require_once __DIR__ . '/user_models/model_of_authorization.php';
+ 	//require_once __DIR__ . '/user_models/model_of_authorization.php';
 // Registration
-require_once __DIR__ . '/user_models/model_of_registration.php';
+	//require_once __DIR__ . '/user_models/model_of_registration.php';
 //  Work with database:
 //adding in database:  text information, which the user uploaded; date,calculated using the function$ sent or show comments
-require_once __DIR__ . '/model_of_notes_work_with_databases.php';
+	//require_once __DIR__ . '/model_of_notes_work_with_databases.php';
 // Exit from session
 require_once __DIR__ . '/user_models/model_of_exit.php';
 

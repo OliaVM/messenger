@@ -29,12 +29,16 @@
 		<?php //echo $row['note_text']; ?><br>
 		<?php if (isset($_SESSION['login']) && isset($_SESSION['password'])): ?>
 			<form method="post">
+				<!-- Deleting note VIEW -->
 				<input type='hidden' name="del_id" value="<?php echo $row['id']; ?>">
 				<input name="button_del" value="Удалить сообщение" type="submit">
+				<!-- Editor VIEW -->
 				<input type='hidden' name="red_id" value="<?php echo $row['id']; ?>">
-				<a href='index.php?page_name=editor&red_id=<?php echo $row['id']; ?>'>Отредактировать сообщение</a>
+				<a href='index.php?page_name=editor_page&red_id=<?php echo $row['id']; ?>'>Отредактировать сообщение</a>
+				<!-- Comments show VIEW -->
 				<input type='hidden' name="show_coments" value="<?php echo $row['id']; ?>">
 				<input name="button_show_coments" value="Посмотреть комментарии" type="submit">
+				<!-- New comments add VIEW -->
 				<br>Введите комментарий: 
 				<textarea  type="text" name="comment" rows="1" cols="70" maxlength="500"></textarea><br>
 				<input type='hidden' name="article_id" value="<?php echo $row['id']; ?>">
