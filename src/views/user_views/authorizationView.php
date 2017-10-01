@@ -27,7 +27,7 @@ class AuthClassView {
 	public function generateAuthorizationView($basa)
 	{
 		$this->showAuthForm($basa);
-		echo "<p><a href='/index.php?page_name=content'>Перейти на главную страницу</a></p>";
+		echo "<p><a href='/index.php'>Перейти на главную страницу</a></p>";
 	}
 
 }

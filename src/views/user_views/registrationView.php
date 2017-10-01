@@ -19,7 +19,7 @@ class RegView {
 
 	public function generateRegistrationView($basa) {
 		$this->showRegForm($basa);
-		echo "<p><a href='/index.php?page_name=content'>Перейти на главную страницу</a></p>";
+		echo "<p><a href='/index.php'>Перейти на главную страницу</a></p>";
 	}
 
 }
