@@ -1,7 +1,7 @@
 <!-- Редактирование записи -->
 <?php if (isset($_SESSION['login']) && isset($_SESSION['password'])): ?>
 	<?php if (isset($_POST['go'])): ?>
-		<?php if (isset($_POST['note_title']) && isset($_POST['note_text']) && isset($_POST['short_text']) && isset($x2)): ?>
+		<?php if (isset($_POST['note_title']) && isset($_POST['note_text']) && isset($_POST['short_text']) && isset($printNotesAddEx)): ?>
 		    <form method="POST">
 				Введите название заметки(объемом до 150 знаков): 
 				<input type="text" name="note_title" size="150" maxlength="150" value="<?php echo $_POST['note_title']; ?>"><br>
