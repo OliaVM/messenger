@@ -1,5 +1,5 @@
 body {
-	font-size: 12pt;
+	font-size: 14pt;
 	font-family: times new roman;
 }
 h1 {
@@ -8,16 +8,18 @@ h1 {
 h2.redcolor {
 	color: #c70000;
 }
-#box12 {
-	background-color: #9090e8;
+#header {
+	background-color: #9090e9;
 	text-align: center;
 }
-#box4 {
+#menu {
 	background-color: #c5d0e6;
 }
-#box8 {
+#page {
 	background-color: #d3deed;
 	text-align: center;
 }
-
-
+#footer {
+	background-color: #9090e8;
+	text-align: center;
+}

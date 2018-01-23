@@ -2,37 +2,40 @@
 <html lang="ru">
 	<head>
 	  <meta charset="UTF-8">
-	  <link href="/style/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-	  <link href="/style/style.css" rel="stylesheet" type="text/css"/>
-	  <script type="text/javascript" src="/js/jquery-3.1.1.min.js"></script>
-	  <script type="text/javascript" src="/js/bootstrap.min.js"></script>
-	  <meta name="viewport" content="width=device-width, initial-scale = 1.0">
-	  <link type="text/css" rel="stylesheet" href="/style/bootstrap-responsive.css">
+		<!-- CSS Bootstrap -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+		<!-- theme Bootstrap -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+		<!-- jQuery -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<!-- js Bootstrap -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script> 
+		<!-- CSS -->
+		<link href="/style/messenger_style.css" rel="stylesheet" type="text/css"/>
 	</head>
 	<body>
-		<div class="row-fluid">
-			<div class="span9" id="box12">
-				<?php require_once __DIR__ .'/header.php'; ?> 
+		<div class="container" >
+			<div class="row">
+				<img src="/picture/main.jpg" class="img-responsive"> 
 			</div>
-		</div>
-		<div class="container-fluid">
-			<div class="row-fluid">
+			<div class="row" id="header">
+				<?php require_once __DIR__ .'/header.php'; ?>
+			</div>
 
-			  	<div class="span3" id="box4" id="menu"> 
+			<div class="row bg-info">
+				<div class="col-xs-6 col-sm-4" id="menu">
 					<?php require_once __DIR__ .'/menu.php'; ?> 
 				</div>
-
-				<div class="span6" id="box8">
-					<div>
-						<?php require_once   __DIR__ . $path . $page_name.'.php'; ?> 
-					</div>
+				<div class="col-xs-12 col-sm-8" id="page">
+					<?php require_once   __DIR__ . $path . $page_name.'.php'; ?> 
 				</div>
 			</div>
-		</div>	
 
-		<div class="row-fluid">
-			<div class="span9" id="box12">
-				<?php require_once  __DIR__ . '/footer.php'; ?>  
+			<div class="row" id="footer">
+				<h1><?php require_once  __DIR__ . '/footer.php'; ?></h1>
+			</div>
+			<div class="row">
+				<img src="/picture/footer.jpg" class="img-responsive">  
 			</div>
 		</div>
 	</body>
